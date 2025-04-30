@@ -1,0 +1,785 @@
+/* グローバルフォント設定 */
+body, header, nav, nav a, section, footer {
+  font-family: "Hiragino Kaku Gothic Pro", "Arial", sans-serif;
+}
+
+/* body */
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+  /* 背景画像を固定表示 */
+
+  background: url("../home_background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+.logo img {
+  width: 230px; /* 好きなサイズに */
+  height: auto; /* アスペクト比維持 */
+}
+.greeting-section {
+  background: linear-gradient(135deg, #e0f7fa, #f0ffff); 
+  /* 淡いグラデーション背景。2色変えれば色味を自由に */
+  padding: 60px 20px; 
+  /* 縦横に十分な余白を */
+}
+
+#loader.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.tooth {
+  width: 80px;
+  height: 80px;
+  background: url('tooth_character.jpg') no-repeat center center / contain;
+  animation: bounce 4s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ページ全体のフェード */
+body.fadeout {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tab-icon {
+  display: inline-block;    /* インラインブロック */
+  width: 40px;              /* 必要な幅にする */
+  height: auto;
+  margin-left: 10px;        /* テキストとアイコンの余白 */
+  opacity: 0;               /* 初期状態は透明 */
+  transition: opacity 0.3s; /* ホバーで透明度を変える */
+}
+.tab-icon-wrapper:hover .tab-icon {
+  opacity: 1;
+}
+
+
+.photo-swap {
+  position: relative;
+  display: inline-block; 
+}
+.photo-swap img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.4s ease;
+}
+.photo-default { opacity: 1; }
+.photo-hover   { opacity: 0; }
+.photo-swap:hover .photo-default { opacity: 0; }
+.photo-swap:hover .photo-hover   { opacity: 1; }
+/* コンテナ:2カラム */
+.greeting-inner {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* 左カラム(親) */
+.greeting-img {
+  position: relative;
+  max-width: 300px; 
+  width: 100%;
+}
+
+/* 1枚目: static(親の大きさを決める) */
+.base-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2枚目: absolute, デフォルト非表示(opacity:0) */
+.hover-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* hoverで2枚目を表示 */
+.photo-swap:hover .hover-img {
+  opacity: 1;
+}
+
+.greeting-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1em;
+  color: #006064; 
+  /* タイトルカラー */
+}
+
+.greeting-text p {
+  line-height: 1.8;
+  color: #333;
+}
+
+.director-profile h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.director-profile ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.director-profile li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+
+
+/* ドットをオシャレに表示したい場合 */
+.director-profile li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #00bcd4; /* 好きな色 */
+}
+
+.affiliates-box {
+  /* 背景色を薄い水色っぽく (例: #e0f7fa) */
+  background: #e0f7fa;
+  /* ドットの枠線も水色系 (例: #b2ebf2) */
+  border: 2px dotted #b2ebf2;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-top: 20px;
+  /* 薄いシアン系の影 (rgba(0, 188, 212, 0.2)など) */
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+}
+
+.affiliates-box h3 {
+  text-align: center;
+  /* タイトル文字色：少し濃いティール (例: #006064) */
+  color: #006064;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.affiliates-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.affiliates-list li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* ダイヤマーカー (◆) に淡いティール系色を使う */
+.affiliates-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  /* bulletの色をもう少し濃いめに (例: #00838f) */
+  color: #00838f;
+  font-size: 1.2rem;
+}
+
+/* カードの大枠 */
+.card-frame {
+  max-width: 800px;          /* カードの最大幅（お好みで） */
+  margin: 0 auto;            /* 中央寄せ */
+  background: #fff;          /* 白背景 */
+  border-radius: 12px;       /* 角丸 */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* カード影 */
+  overflow: hidden;          /* 画像がはみ出さないように */
+  display: flex;             /* 横並びレイアウト */
+  align-items: center;       /* 垂直方向の中央揃え */
+}
+
+/* ▼ 左カラム（写真） */
+.card-image {
+  position: relative;        /* 画像を重ねるため必要 */
+  flex: 1;                   /* カラム幅の割合 */
+  min-width: 300px;          /* 画像側の最小幅（お好みで） */
+}
+
+/* ▼ 2枚の写真 */
+.card-image img {
+  width: 80%;
+  height: auto;
+  display: block;            /* 余白対策 */
+  position: absolute;        /* 重ねるため */
+  top: 0; left: 0;
+  transition: opacity 0.4s;  /* フェード演出 */
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.card-image img.base-img,
+.card-image img.hover-img {
+  top: -160px; /* 上方向に20px移動 (この数値で調整) */
+  
+}
+
+.base-img { 
+  opacity: 1; 
+  z-index: 1; 
+}
+.hover-img { 
+  opacity: 0; 
+  z-index: 2; 
+}
+
+/* マウスホバーで 1枚目を透明, 2枚目を不透明に */
+.card-image:hover .base-img {
+  opacity: 0;
+}
+.card-image:hover .hover-img {
+  opacity: 1;
+}
+
+/* ▼ 右カラム（テキスト） */
+.card-content {
+  flex: 1.5;                 /* こちらは少し大きめ */
+  padding: 30px;
+  text-align: left;          /* 左寄せ */
+}
+
+.card-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1em;
+  color: #006064;            /* アクセントカラー例 */
+}
+.card-content p {
+  line-height: 1.8;
+  color: #333;
+}
+
+
+/* header */
+header {
+  background-color: #00ACC1;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+
+
+/* nav */
+nav {
+  text-align: center;
+  padding: 10px;
+  background-color: #B2EBF2;
+}
+nav a {
+  color: #00796B;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #004D40;
+}
+
+.nav li {
+  position: relative; /* 子要素を絶対配置させるため */
+}
+
+
+/* section 共通 */
+section {
+  padding: 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Googleマップ埋め込み */
+.map {
+  width: 100%;
+  height: 300px;
+}
+
+/* footer */
+footer {
+  background-color: #00ACC1;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* heroセクション */
+.hero {
+  width: 100%;
+  height: 300px;
+  background: url("../title_background.jpg") no-repeat center center / cover;  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3);
+  margin-bottom: 40px;
+}
+
+/* サイドバー */
+.sidebar {
+  width: 250px;
+  background-color: rgba(224, 247, 250, 0.95);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  align-self: flex-start;
+}
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.sidebar-toggle {
+  display: none;
+  background-color: #00bcd4;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    position: relative;
+    order: 0;
+  }
+
+  .menu-toggle:checked + .sidebar-toggle + .sidebar {
+    display: block;
+  }
+}
+
+
+/* ロゴ */
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #006064;
+  margin-bottom: 30px;
+}
+
+/* サイドナビ */
+.nav {
+  list-style: none;
+  padding: 0;
+}
+.nav li {
+  margin-bottom: 12px;
+}
+.nav a {
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  background-color: #00bcd4;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.nav a:hover {
+  background-color: #0097a7;
+}
+
+/* サイドのフッター */
+.footer {
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #555;
+}
+
+
+.contact-info {
+  background-color: #e0f7fa; /* 背景色を薄い水色に */
+  border-radius: 8px; /* 角丸に */
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* 影をつけて浮き上がった感じ */
+  text-align: center; /* 中央揃え */
+}
+
+.contact-info a {
+  color: #00796B; /* 電話番号リンクを見やすい色に */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline; /* マウスを乗せたときに下線をつける */
+}
+
+.sidebar-contact {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0f7fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,188,212,0.2);
+}
+
+.sidebar-contact a {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #006064;
+  text-decoration: none;
+}
+
+.sidebar-contact a:hover {
+  color: #00bcd4;
+}
+
+#contact-info {
+  margin-top: 30px;
+  text-align: center;
+  padding: 15px;
+  background-color: #f0ffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.main-contact {
+  font-size: 1.5rem;
+  color: #006064;
+}
+
+.main-contact a {
+  color: #00bcd4;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.main-contact a:hover {
+  text-decoration: underline;
+}
+
+
+/* ごあいさつの目立つデザイン */
+.director-profile .greeting-box {
+  background: linear-gradient(135deg, #b2ebf2, #e0f7fa); /* 明るいグラデーション */
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+  text-align: center;
+}
+
+.director-profile .greeting-box h3 {
+  color: #006064;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #006064;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.director-profile .greeting-box p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0;
+}
+
+/*calender*/
+
+/* ── カード風ラップ ── */
+.calendar-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+.calendar-card h2 {
+  color: #006064;
+  margin-bottom: 16px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+/* ── iframe をレスポンシブに ── */
+.calendar-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.calendar-wrapper iframe {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* ── 周りにアクセントバー ── */
+.calendar-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 80px;
+  background: #00bcd4;
+  margin: 0 auto 12px;
+  border-radius: 2px;
+}
+
+/* メインコンテンツ領域 */
+.main {
+  flex: 1;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* 見出し・表など */
+h1 {
+  color: #008b8b;
+  border-bottom: 2px solid #008b8b;
+  padding-bottom: 0.2em;
+}
+h2 {
+  margin-top: 1.5em;
+  color: #006666;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+th {
+  background-color: #e0f7f7;
+  text-align: left;
+}
+.note {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.cephalo-reason {
+  background: #e0f7fa;
+  padding: 60px 20px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 60px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.cephalo-reason h2 {
+  font-size: 2rem;
+  color: #007c91;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.cephalo-reason ul {
+  text-align: left;
+  list-style: none;
+  padding-left: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cephalo-reason li {
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 1.2em;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.cephalo-reason li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0097a7;
+  font-size: 1.2rem;
+}
+
+
+/* 診療時間テーブルスタイル */
+.clinic-hours {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.clinic-hours th, .clinic-hours td {
+  padding: 12px 8px;
+  border: 1px solid #a7d7d9;
+}
+
+.clinic-hours thead {
+  background-color: #00bcd4;
+  color: #fff;
+}
+
+.clinic-hours tbody td {
+  background-color: #f0fdff;
+}
+
+.clinic-hours td.closed {
+  background-color: #f5f5f5;
+  color: #bbb;
+}
+
+.note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+
+/* Dr.Nano */
+.nano-section .nano-content {
+  display: flex;
+  flex-direction: column;  /* 縦並びにする */
+  gap: 20px;               /* 写真とテキストの間隔 */
+  margin-top: 1em;
+}
+
+.nano-section .nano-image img {
+  max-width: 600px;   /* ← ここを小さめの値に */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 0 auto;     /* 画像を中央寄せ */
+}
+
+.nano-section .nano-text a {
+  color: #006064;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nano-section .nano-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .nano-section .nano-content {
+    flex-direction: column;
+  }
+  .nano-section .nano-image,
+  .nano-section .nano-text {
+    width: 100%;
+  }
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+  .main {
+    padding: 20px;
+  }
+ 
+
+/* ごあいさつセクションのレスポンシブ対応 */
+@media (max-width: 768px) {
+  .card-frame {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-image {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .card-image img {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .card-content {
+    padding: 20px;
+    text-align: left;
+  }
+}
+
+}

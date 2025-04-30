@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>治療の流れ｜南平岸矯正歯科</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic Pro", "Helvetica Neue", sans-serif;
+      background: url('home_background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .sidebar-toggle {
+      display: none;
+      background-color: #00bcd4;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: rgba(224, 247, 250, 0.95);
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      height: fit-content;
+      align-self: flex-start;
+      order: 0;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #006064;
+      margin-bottom: 30px;
+    }
+    .nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav li {
+      margin-bottom: 12px;
+    }
+    .nav a {
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .nav a:hover {
+      background-color: #0097a7;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.85em;
+      color: #555;
+    }
+    .main {
+      flex: 1;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      order: 1;
+    }
+    h1 {
+      color: #008b8b;
+      border-bottom: 2px solid #008b8b;
+      padding-bottom: 0.3em;
+    }
+    .step {
+      margin-bottom: 2em;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .step img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .step-content {
+      flex: 1;
+    }
+    .step h2 {
+      color: #006666;
+      font-size: 1.2em;
+      margin-bottom: 0.2em;
+    }
+    .step p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    .important-point {
+  font-weight: bold;
+  color: #00796B; /* 濃いめのグリーンで清潔感＋安心感 */
+  background-color: #e0f7fa; /* ほんのり水色背景で浮かせる */
+  padding: 0.5em;
+  border-radius: 8px;
+  display: inline-block;
+  line-height: 1.8;
+}
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar-toggle {
+        display: block;
+      }
+      .sidebar {
+        width: 100%;
+        box-shadow: none;
+        position: relative;
+        display: none;
+        order: 0;
+      }
+      .sidebar.active {
+        display: block;
+      }
+      .main {
+        padding: 20px;
+        order: 1;
+      }
+      .step {
+        flex-direction: column;
+      }
+      .step img {
+        width: 100%;
+        max-width: none;
+      }
+      #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .tooth {
+      width: 80px;
+      height: 80px;
+      background: url('tooth_character.jpg') no-repeat center center / contain;
+      animation: bounce 4s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    }
+  </style>
+</head>
+<!-- 👇 ここに fade-in を追加 -->
+<body class="index fade-in">
+
+  <!-- ローディング画面 -->
+  <div id="loader">
+    <div class="tooth"></div>
+  </div>
+
+  <!-- ハンバーガーメニュー -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+  <label for="menu-toggle" class="sidebar-toggle">☰ メニューを開く／閉じる</label>
+
+  <!-- サイドバー -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="南平岸矯正歯科のロゴ" />
+    </div>
+
+    <div class="sidebar-contact">
+      ☎️ <a href="tel:011-827-9901">011-827-9901</a>
+    </div>
+
+    <ul class="nav">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="clinic.html">クリニック案内</a></li>
+      <li><a href="about.html">矯正治療について</a></li>
+      <li><a href="doctors.html">ドクター紹介</a></li>
+      <li><a href="treatment.html">治療の流れ</a></li>
+      <li><a href="fee.html">治療費について</a></li>
+      <li><a href="mouthpiece.html">マウスピース型矯正装置について</a></li>
+      <li><a href="#access">アクセス・診療時間</a></li>
+    </ul>
+
+   
+    
+    <div class="footer">
+      あなたの要望や不安をしっかりお聞きし納得のいく治療法をご提案させていただきます。安心してお越しください！
+    </div>
+  </div>
+
+
+  <div class="main">
+    <h1>治療の流れ</h1>
+
+    <div class="step">
+      <img src="step1.png" alt="初診相談の様子">
+      <div class="step-content">
+        <h2>1. 初診相談（約1時間）</h2>
+        <p>患者様の歯並びを拝見し、ご希望やお悩みなどをお聞かせいただく、大切な第一ステップです。<br>
+          お口の中の状態を見せていただき、簡単なお話をしながら矯正治療の概要をご説明いたします。<br>
+          治療の流れ、期間、用いる装置の説明、治療費などのご案内をいたします。<br>
+          資料などをお持ちの方はご持参ください。紹介状がある方は、かかりつけの歯科医院・またはご紹介させていただく歯科医院のものをお持ちください。
+          
+          </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step2.png" alt="精密検査の様子">
+      <div class="step-content">
+        <h2>2. 精密検査（約1時間半）</h2>
+        <p>
+          <span class="important-point">
+            セファログラム(矯正治療の分析、計画に必要なレントゲン)撮影、CT<br>
+            パノラマレントゲン撮影、歯の形どり、<br>
+            お時間が合えば初回カウンセリング当日に精密検査まで行う事もできます。
+            <br>
+            特に「セファログラム（頭部X線規格写真）」は、骨格や歯のバランスを正確に分析するために欠かせません。<br>
+            ワンショット撮影で短時間での撮影が可能です。
+            <a href="cephalo.html">▶ セファログラムについて詳しくはこちら</a>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step3.png" alt="診断の様子">
+      <div class="step-content">
+        <h2>3. 診断（約1時間）</h2>
+        <p>検査結果のご説明です。<br>
+          患者様にとって最適と考えられる治療計画や期間、費用、お支払い方法などをご説明致します。<br>
+          治療方針がいくつかある場合、相談の上、希望する治療方法を選んで決めていただきます。<br>
+          治療を承諾されましたら、準備に入ります。<br>
+          むし歯の治療が抜歯が必要な場合は、かかりつけの歯科医院、またはご紹介させていただく歯科医院での処置をお願いいたします。
+          </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step4.png" alt="治療装置の装着">
+      <div class="step-content">
+        <h2>4. 治療開始（約1時間半）・装置装着</h2>
+        <p>装置装着は、患者様に合わせたカスタム装置をお口に装着します。<br>
+          ブラッシング指導などのお話も合わせて行います。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step5.png" alt="ワイヤー調整中の様子">
+      <div class="step-content">
+        <h2>5. ワイヤー調整（約30分〜60分）</h2>
+        <p>歯の動きに応じて、月に1度程度のワイヤーの調整を行います。
+
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step6.png" alt="装置除去の様子">
+      <div class="step-content">
+        <h2>6. 装置除去</h2>
+        <p>歯並びが整い、咬み合わせも安定して最終目標が出来たら装置を外します。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step7.png" alt="保定期間のチェック">
+      <div class="step-content">
+        <h2>7. 保定・定期健診（約15分・3ヶ月〜半年に1度）</h2>
+        <p>歯並びがきれいになったら、後戻り防止の装置を使用していただきます。
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <img src="step8.png" alt="治療完了後の笑顔">
+      <div class="step-content">
+        <h2>8. 治療完了</h2>
+        <p>歯並びや咬み合わせが安定し、装置が不要になったら治療終了です。<br>
+          矯正終了後も気になる点がありましたら、いつでもご相談ください。</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 南平岸矯正歯科
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out'); // アニメーション開始
+        }, 1500); // ロード表示時間（ms）※調整可能
+      }
+    });
+  </script>
+</body>
+</html>

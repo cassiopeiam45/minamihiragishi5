@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マウスピース型矯正装置について｜南平岸矯正歯科</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ローディング画面 */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .tooth {
+      width: 80px;
+      height: 80px;
+      background: url('tooth_character.jpg') no-repeat center center / contain;
+      animation: bounce 4s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body class="index fade-in">
+
+  <!-- ローディング画面 -->
+  <div id="loader">
+    <div class="tooth"></div>
+  </div>
+
+  <!-- ハンバーガーメニュー -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+  <label for="menu-toggle" class="sidebar-toggle">☰ メニューを開く／閉じる</label>
+
+  <!-- サイドバー -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="南平岸矯正歯科のロゴ" />
+    </div>
+
+    <div class="sidebar-contact">
+      ☎️ <a href="tel:011-827-9901">011-827-9901</a>
+    </div>
+    
+    <ul class="nav">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="clinic.html">クリニック案内</a></li>
+      <li><a href="about.html">矯正治療について</a></li>
+      <li><a href="doctors.html">ドクター紹介</a></li>
+      <li><a href="treatment.html">治療の流れ</a></li>
+      <li><a href="fee.html">治療費について</a></li>
+      <li><a href="mouthpiece.html">マウスピース型矯正装置について</a></li>
+      <li><a href="index.html#access">アクセス・診療時間</a></li>
+    </ul>
+
+    
+    
+    <div class="footer">
+      あなたの要望や不安をしっかりお聞きし納得のいく治療法をご提案させていただきます。安心してお越しください！
+    </div>
+  </div>
+
+
+    <div class="main">
+      <h1>マウスピース型矯正装置について</h1>
+
+      <section>
+        <h2>マウスピース型矯正装置について</h2>
+        <p>
+          マウスピース型矯正装置は、ブラケットやワイヤーを使用せず、透明なラミネート素材で作られた取り外し可能な矯正装置です。
+        </p>
+        <p>
+          装置が目立ちにくいため、見た目が気になる方にもおすすめです。また、食事の際には取り外すことができ、金属を使用していないため金属アレルギーのリスクもありません。これらの点から、多くの患者さまにとって快適に治療を受けられるという大きなメリットがあります。
+        </p>
+        <p>
+          ただし、すべての症例に適応できるわけではなく、歯並びの状態によっては効果が得られにくい場合もあります。また、決められた装着時間（1日20時間以上など）を守れないと、治療が計画通りに進まないことがあります。
+        </p>
+        <p>
+          自己管理が難しいと判断された場合や、十分な効果が得られない場合には、ワイヤー矯正への切り替えをご提案させていただくこともあります。
+        </p>
+        <p>
+          ご不安な点や気になることがあれば、いつでもご相談ください。
+        </p>
+      </section>
+
+      <footer>
+        &copy; 2025 南平岸矯正歯科
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out'); // アニメーション開始
+        }, 1500); // ロード表示時間（ms）※調整可能
+      }
+    });
+  </script>
+</body>
+</html>
