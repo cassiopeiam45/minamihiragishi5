@@ -7,6 +7,35 @@
   <link rel="icon" href="logo.ico" type="image/x-icon">
   <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Swiper.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<!-- Swiper.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+/* スライダーのスタイル調整 */
+.swiper {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+  width: 100%;
+  display: block;
+}
+
+/* ページネーション（ドット）カスタマイズ */
+.swiper-pagination-bullet {
+  background-color: #00bcd4;
+}
+</style>
+
 </head>
 <body class="index">
   <!-- ローディング画面 -->
@@ -66,6 +95,33 @@
       </p>
     </section>
 
+    <section>
+      <h2>院内紹介</h2>
+    
+      <!-- スライダー本体 -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!-- スライド1 -->
+          <div class="swiper-slide"><img src="clinic1.jpg" alt="受付・待合室"></div>
+          <!-- スライド2 -->
+          <div class="swiper-slide"><img src="clinic2.jpg" alt="診療室"></div>
+          <!-- スライド3 -->
+          <div class="swiper-slide"><img src="clinic3.jpg" alt="診療チェア"></div>
+          <!-- 必要に応じて追加 -->
+        </div>
+    
+        <!-- ページネーション（下のドット） -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- 左右ナビゲーションボタン -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    
+      <p>白を基調とした清潔感のある空間で、リラックスできる雰囲気を大切にしています。</p>
+    </section>
+    
+
     <section id="access">
       <h2>レントゲンについて</h2>
       <p>レントゲンはセファロ(頭部X線規格写真)、CT、パノラマ複合レントゲン装置。ワンショット撮影で短時間の撮影が可能です。</p>
@@ -112,5 +168,23 @@
       }
     });
   </script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true, // 無限ループ
+    autoplay: {
+      delay: 4000, // 4秒ごとにスライド
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
 </body>
 </html>
