@@ -782,4 +782,57 @@ th {
   }
 }
 
+/* ──────────────────────────────────────── */
+/* 診療時間テーブルのレスポンシブ対応（修正版） */
+#hours {
+  overflow-x: auto;                  /* 横スクロールを有効に */
+  -webkit-overflow-scrolling: touch; /* iOSで慣性スクロール */
+  margin-bottom: 1em;
+}
+
+.clinic-hours {
+  width: max-content; /* 内容幅に合わせる */
+  min-width: 100%;    /* かつ親要素幅以上には広がる */
+  border-collapse: collapse;
+}
+
+/* 固定ヘッダー */
+.clinic-hours thead th {
+  position: sticky;
+  top: 0;
+  background: #e0f7f7;
+  z-index: 1;
+}
+
+/* セルの基本スタイル */
+.clinic-hours th,
+.clinic-hours td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  white-space: nowrap; /* 改行させずに横スクロールさせる */
+}
+
+/* 休診セルだけ淡いグレーに */
+.clinic-hours .closed {
+  color: #999;
+}
+
+/* 「昼休み」注記 */
+#hours .note {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 小画面でフォント・パディングを少し縮小 */
+@media (max-width: 767px) {
+  .clinic-hours th,
+  .clinic-hours td {
+    padding: 6px;
+    font-size: 0.9em;
+  }
+}
+
 }
